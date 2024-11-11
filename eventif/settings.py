@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'core',
     'subscriptions',
+    'trab_bim_3',
 ]
 
 MIDDLEWARE = [
