@@ -19,4 +19,4 @@ source .eventif/bin/activate
 pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
-```
+```# trab_3o_bim
