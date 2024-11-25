@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'core',
     'subscriptions',
     'trab_bim_3',
+    'contact'
 ]
 
 MIDDLEWARE = [
