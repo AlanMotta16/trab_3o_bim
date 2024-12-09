@@ -3,6 +3,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
     dependencies = [
         ('subscriptions', '0001_initial'),
+        ('subscriptions', '0002_alter_subscription_options_alter_subscription_cpf_and_more.py'),
     ]
     operations = [
         migrations.AlterModelOptions(
