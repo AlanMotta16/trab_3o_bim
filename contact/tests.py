@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from .forms import ContactForm
+from .models import Contact
 
 class ContactViewTests(TestCase):
     def test_get_contact_page(self):
@@ -44,3 +45,12 @@ class ContactFormTests(TestCase):
     def test_invalid_form(self):
         form = ContactForm(data={})
         self.assertFalse(form.is_valid())
+
+class ContactModelTest(TestCase):
+    def test_create_contact(self):
+        contato = Contact.objects.create(
+            nome="Test User",
+            email="test@example.com",
+            mensagem="Mensagem de teste",
+        )
+        self.assertEqual(contato.respondido, False)
