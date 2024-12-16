@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Contato Recebido</h1>
+        <p>Novo contato recebido de <strong>{{ name }}</strong>.</p>
+        
+        <p><strong>Telefone:</strong> {{ phone }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+
+        <p><strong>Mensagem:</strong></p>
+        <blockquote>{{ message }}</blockquote>
+
+        <p>---------</p>
+        <p>Em até 48 horas úteis, alguém da nossa equipe responderá o seu contato.</p>
+
+        <div class="footer">
+            <p>Atenciosamente,</p>
+            <p><strong>Equipe Eventif</strong></p>
+        </div>
+    </div>
+</body>
+</html>
