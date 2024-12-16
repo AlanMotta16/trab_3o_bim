@@ -11,13 +11,14 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            contato = form.save()
-            send_mail(
-                subject="Novo Contato Recebido",
-                message=f"Nome: {contato.nome}\nEmail: {contato.email}\nMensagem: {contato.mensagem}",
-                from_email="contato@eventif.com.br",
-                recipient_list=["contato@eventif.com.br"],
-            )
+            # contato = form.save()
+            form.save()  # Isso deve funcionar se o formulário for um ModelForm
+            # send_mail(
+            #     subject="Novo Contato Recebido",
+            #     message=f"Nome: {contato.nome}\nEmail: {contato.email}\nMensagem: {contato.mensagem}",
+            #     from_email="contato@eventif.com.br",
+            #     recipient_list=["contato@eventif.com.br"],
+            # )
             return redirect('success')
             # # Obtém os dados do formulário
             # name = form.cleaned_data['name']

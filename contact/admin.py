@@ -1,14 +1,6 @@
 from django.contrib import admin
-from django.test import TestCase
-from django.urls import reverse
 from .models import Contact
 
-@admin.register(Contact)
-
-class AdminTest(TestCase):
-    def test_admin_contact_list(self):
-        response = self.client.get(reverse('admin:contact_contact_changelist'))
-        self.assertEqual(response.status_code, 200)
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email', 'respondido', 'data_recebimento')
@@ -26,3 +18,6 @@ class ContactAdmin(admin.ModelAdmin):
             obj.respondido = True
             obj.data_resposta = now()
         super().save_model(request, obj, form, change)
+
+
+admin.site.register(Contact, ContactAdmin)

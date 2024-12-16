@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from .forms import ContactForm
@@ -54,3 +55,18 @@ class ContactModelTest(TestCase):
             mensagem="Mensagem de teste",
         )
         self.assertEqual(contato.respondido, False)
+
+class AdminTest(TestCase):
+    def setUp(self):
+        # Criação de um superusuário para o login no admin
+        self.user = get_user_model().objects.create_superuser('admin', 'admin@example.com', 'password')
+
+    def test_admin_contact_list(self):
+        # Fazendo login como admin
+        self.client.login(username='admin', password='password')
+
+        # Acessando a lista de contatos no admin
+        response = self.client.get(reverse('admin:contact_contact_changelist'))
+
+        # Verificando se a resposta foi 200 (sucesso)
+        self.assertEqual(response.status_code, 200)
